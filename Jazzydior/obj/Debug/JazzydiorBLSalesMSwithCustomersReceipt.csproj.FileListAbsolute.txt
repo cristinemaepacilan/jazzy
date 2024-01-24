@@ -1,0 +1,114 @@
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveSales.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveStaffs.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.ManagerView.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_StaffsListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.FrmReceipts.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SalonReceptionistView.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.LoginForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_RSalesReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_RTransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.Properties.Resources.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SR_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SR_TransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\bin\Debug\Jazzydior.exe.config
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\bin\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\bin\Debug\Jazzydior.pdb
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.pdb
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ServicesCategoryList.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ServicesPackageList.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ReportsMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_StaffListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_UserCreateAcct.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SearchServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_UserAcctMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_RSalesPrintReview.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.Receipt.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.LoadingForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.MV_UserPosition.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SR_Discount.resources
+C:\Users\admin\Desktop\JazzydiorOLD\Jazzydior\obj\Debug\Jazzydior.SR_NewTransaction.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\bin\Debug\Jazzydior.exe.config
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\bin\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\bin\Debug\Jazzydior.pdb
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.LoadingForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveSales.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveStaffs.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.ManagerView.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_RSalesPrintReview.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesCategoryList.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesPackageList.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.Receipt.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SearchServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SR_NewTransaction.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_StaffsListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_UserCreateAcct.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.FrmReceipts.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SalonReceptionistView.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ReportsMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_UserPosition.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.LoginForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_RSalesReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_RTransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_StaffListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.Properties.Resources.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SR_Discount.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SR_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.SR_TransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.MV_UserAcctMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD - Copy\Jazzydior\obj\Debug\Jazzydior.pdb
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\bin\Debug\Jazzydior.exe.config
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\bin\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\bin\Debug\Jazzydior.pdb
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.LoadingForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveSales.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveStaffs.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.ManagerView.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_RSalesPrintReview.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ServicesCategoryList.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ServicesPackageList.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.Receipt.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SearchServices.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SR_NewTransaction.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_StaffsListAddNew.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_UserCreateAcct.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.FrmReceipts.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SalonReceptionistView.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ReportsMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_UserPosition.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.LoginForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_RSalesReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_RTransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_StaffListMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.Properties.Resources.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SR_Discount.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SR_Home.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.SR_TransactionReport.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.MV_UserAcctMainForm.resources
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.GenerateResource.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.exe
+C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.pdb
