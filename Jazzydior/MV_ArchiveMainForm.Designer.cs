@@ -125,6 +125,7 @@ namespace Jazzydior
             this.dtgArchiveServices.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgArchiveServices.Size = new System.Drawing.Size(1117, 536);
             this.dtgArchiveServices.TabIndex = 38;
+            this.dtgArchiveServices.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgArchiveServices_CellContentClick);
             // 
             // panelSwitchArchive
             // 

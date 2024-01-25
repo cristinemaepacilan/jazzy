@@ -30,7 +30,7 @@ namespace Jazzydior
 
         private void GetPositionRecord()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("Select * from position", con);
             DataTable dt = new DataTable();
 

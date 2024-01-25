@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -20,17 +21,19 @@ namespace Jazzydior
 
         public Stack<ServiceRecord> servicesStack = new Stack<ServiceRecord>();
         public Stack<PackageRecord> packageStack = new Stack<PackageRecord>();
-        public DataGridViewRow currentSelectedRow;
+        public DataGridViewRow currentSelectedRowServices;
+        public DataGridViewRow currentSelectedRowPackages;
 
         public Transact transaction = new Transact()
         {
-
+           
             AmountTendered = 0,
             AmountDue = 0,
             Change = 0,
             VAT = 0,
             Vatable = 0,
-            TransNo = 0
+            TransNo = 0,
+            TotalAmount = 0
 
         };
 
@@ -68,7 +71,7 @@ namespace Jazzydior
         // Load ComboBox Staff Name
         private void LoadComboboxStaffName()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(" SELECT staff_ID , CONCAT(staff_FName , ' ',staff_LName) StaffName FROM  staffs ", con);
 
             try
@@ -94,7 +97,7 @@ namespace Jazzydior
 
 
         // Load Transaction Data to DataGridView
-        private void GetServiceRecord()
+        private void DrawDataGridForServices()
         {
             // DataGrid for Service List
 
@@ -110,7 +113,7 @@ namespace Jazzydior
             dtgServiceTransact.Columns[3].Visible = false;
         }
 
-        private void GetPackageRecord()
+        private void DrawDataGridForPackages()
         {
             //DataGrid for Package List
 
@@ -139,8 +142,8 @@ namespace Jazzydior
         private void NewTransaction()
         {
             dtgServiceTransact.Rows.Clear();
-
-            lblNewTransactNum.Text = GenerateTransactionNumber().ToString();
+            this.transaction.TransactionNo = GenerateTransactionNumber();
+            lblNewTransactNum.Text = transaction.TransactionNo.ToString();
             lblNewTransactDateTime.Text = DateTime.Now.ToLongDateString();
             lblNewTransactTime.Text = DateTime.Now.ToLongTimeString();
             lblSalesTotal.Text = "0.00";
@@ -173,30 +176,9 @@ namespace Jazzydior
         }
 
 
-        // Computation in Transaction Package
-        public void TransactPackage(PackageRecord data)
-        {
-            // Compute Amount Due
-            this.transaction.AmountDue += data.Package_Price;
-            // Compute VAT
-            this.transaction.VAT = this.transaction.AmountDue * 0.12M;
-            // Comput Vatable
-            this.transaction.Vatable = this.transaction.AmountDue - this.transaction.VAT;
+       
 
-            lblVAT.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.VAT);
-            lblVatable.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Vatable);
-
-            lblSalesTotal.Text = this.transaction.AmountDue.ToString();
-
-            packageStack.Push(data);
-            BindingSource bindingSource = new BindingSource();
-            bindingSource.DataSource = packageStack;
-            dtgPackageTransact.DataSource = bindingSource;
-            GetPackageRecord();
-        }
-
-
-        #region Calculator
+        #region -- Calculator --
 
 
         // Button 1
@@ -312,15 +294,16 @@ namespace Jazzydior
                 txtBoxTendered.Text = "0";
             }
         }
-        #endregion
-
-
         // Clear txtBoxAmountTendered Button
         private void btnC_Click(object sender, EventArgs e)
         {
             txtBoxTendered.Clear();
         }
 
+        #endregion
+
+
+        #region -- Transaction Control --
 
         // Number only in TextBoxAmountTendered
         private void txtBoxTendered_KeyPress(object sender, KeyPressEventArgs e)
@@ -341,6 +324,7 @@ namespace Jazzydior
         {
 
             int count = dtgServiceTransact.Rows.Count;
+            count += dtgPackageTransact.Rows.Count;
             if (count < 1)
             {
                 return;
@@ -367,11 +351,8 @@ namespace Jazzydior
         }
 
 
-       
-
-
         // Calculate Change in Settle Payment
-        public void SettlePayment()
+        public void ProcessChange()
         {
             if (double.TryParse(txtBoxTendered.Text, out double value1) && double.TryParse(txtBoxAmountDue.Text, out double value2))
             {
@@ -379,10 +360,14 @@ namespace Jazzydior
             }
         }
 
+        #endregion
 
         // Computation in Transaction Services
         public void TransactService(ServiceRecord data)
-        {
+        {   
+            
+            // Persist data of the total amount , before VATs and discounts
+            this.transaction.TotalAmount +=data.Service_Price;
             // Compute Amount Due
             this.transaction.AmountDue += data.Service_Price;
             // Compute VAT
@@ -391,91 +376,172 @@ namespace Jazzydior
             this.transaction.Vatable = this.transaction.AmountDue - this.transaction.VAT;
 
 
-            lblVAT.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.VAT);
-            lblVatable.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Vatable);
-
-            lblSalesTotal.Text = this.transaction.AmountDue.ToString();
-
+            //lblVAT.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.VAT);
+            //lblVatable.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Vatable);
+            //lblSalesTotal.Text = this.transaction.AmountDue.ToString();
+            ProcessUI();
 
 
             servicesStack.Push(data);
             BindingSource bindingSource = new BindingSource();
             bindingSource.DataSource = servicesStack;
             dtgServiceTransact.DataSource = bindingSource;
-            GetServiceRecord();
+            DrawDataGridForServices();
         }
+
+        // Computation in Transaction Package
+        public void TransactPackage(PackageRecord data)
+        {
+            // Persist data of the total amount , before VATs and discounts
+            this.transaction.TotalAmount +=data.Package_Price;
+            // Compute Amount Due
+            this.transaction.AmountDue += data.Package_Price;
+            // Compute VAT
+            this.transaction.VAT = this.transaction.AmountDue * 0.12M;
+            // Comput Vatable
+            this.transaction.Vatable = this.transaction.AmountDue - this.transaction.VAT;
+
+            //lblVAT.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.VAT);
+            //lblVatable.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Vatable);
+
+            //lblSalesTotal.Text = this.transaction.AmountDue.ToString();
+            ProcessUI();
+
+            packageStack.Push(data);
+            BindingSource bindingSource = new BindingSource();
+            bindingSource.DataSource = packageStack;
+            dtgPackageTransact.DataSource = bindingSource;
+            DrawDataGridForPackages();
+        }
+
 
 
         // Process UI
         public void ProcessUI()
         {
-            lblAmountDue.Text = string.Format("{0:0.##}", this.transaction.AmountDue);
+            //lblAmountDue.Text = string.Format("{0:0.##}", this.transaction.AmountDue);
+            lblSalesTotal.Text = transaction.AmountDue.ToString("0.00");
             lblVAT.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.VAT);
             lblVatable.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Vatable);
-            lblSalesTotal.Text = this.transaction.AmountDue.ToString();
+            //lblSalesTotal.Text = this.transaction.AmountDue.ToString();
             lblDiscount.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Discount);
+            lblTotal.Text = string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.TotalAmount);
         }
 
 
         // Calculate Change
         private void txtBoxTendered_TextChanged(object sender, EventArgs e)
         {
-            SettlePayment();
+            transaction.AmountTendered = Convert.ToDecimal(txtBoxTendered.Text);
+            ProcessChange();
         }
 
 
         private void txtBoxAmountDue_TextChanged(object sender, EventArgs e)
         {
-            SettlePayment();
+            ProcessChange();
         }
 
 
         // Save Transaction Details to Reports
         private void btnOkay_Click(object sender, EventArgs e)
         {  
-            reports.TransactionNo = lblNewTransactNo.Text;
-            reports.CustomerName = txtBoxCustName.Text;
-            reports.TransService = dtgServiceTransact.Text;
+            reports.TransactionNo = transaction.TransactionNo;
+            reports.CustomerName = txtBoxCustName.Text ?? "Unnamed Customer";
             reports.TransStaffID = Convert.ToInt32(cmbTransactStaffFName.SelectedValue);
-            reports.Discount = lblDiscount.Text;
-            //reports.TransDate = lblNewTransactDateTime.Text;
-            //reports.TransTime = lblNewTransactDate.Text;
-            reports.TransAmountTendered = lblAmountTendered.Text;
-            reports.TransAmountDue = lblSalesTotal.Text;
-            reports.TransVATSales = lblVAT.Text;
-            reports.TransVATAmount = lblVatable.Text;
+            reports.Discount = transaction.Discount;
+            reports.TransAmountTendered = transaction.AmountTendered;
+            reports.TransAmountDue = transaction.AmountDue;
+            reports.TransTotalAmount = transaction.TotalAmount;
+            reports.TransVATSales = transaction.VAT;
+            reports.TransVATAmount = transaction.Vatable;
+            
+
+
+
+
 
             int trans_ID = ReportsDB.AddReports(reports);
 
-            if(trans_ID != 0)
+            if(dtgPackageTransact.Rows.Count > 0) {
+                InsertRowsIntoDatabase(dtgPackageTransact, trans_ID, true);
+            }
+            if(dtgServiceTransact.Rows.Count > 0)
+            {
+                InsertRowsIntoDatabase(dtgServiceTransact, trans_ID, false);
+            }
+           
+          
+
+            if (trans_ID != 0)
             {
                 //printDocument1.Print();
-                printPreviewDialog1.ShowDialog();
+                //printPreviewDialog1.ShowDialog();
+
+                ProcessPrinting();
+                panelSettlePayment.Dispose();
+
             }
             //Receipt frm = new Receipt();
             //frm.Show();
 
         }
-        // Remove Services to Table Cart
-        private void btnRemoveServices_Click(object sender, EventArgs e)
+
+        private void InsertRowsIntoDatabase(DataGridView dataGridView, int transactionID , bool isPackage)
         {
+
+            if(dataGridView == null) return;
+            if(transactionID == 0 ) return;
             
-            transaction.AmountDue -= (decimal)currentSelectedRow.Cells[5].Value;
-            // Compute VAT
-            this.transaction.VAT = this.transaction.AmountDue * 0.12M;
-            //Compute Vatable
-            this.transaction.Vatable = this.transaction.AmountDue - this.transaction.VAT;
+            using (SqlConnection connection = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True"))
+            {
+                connection.Open();
+               
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (!isPackage) {
+                        //FOR SERVICES
+                        string query = "INSERT INTO transactionjunction (transact_ID, serv_ID) VALUES (@transactID, @servID)";
 
-            dtgServiceTransact.Rows.Remove(currentSelectedRow);
-            ProcessUI();
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@transactID", transactionID);
+                            command.Parameters.AddWithValue("@servID", row.Cells["Service_ID"].Value);
+                            command.ExecuteNonQuery();
+                        }
 
+
+                    }
+                    else
+                    {
+                        // FOR SERVICES PACKAGE
+                        string query = "INSERT INTO transactionjunction (transact_ID, servpack_ID) VALUES (@transactID, @servpackID)";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@transactID", transactionID);
+                            command.Parameters.AddWithValue("@servpackID", row.Cells["Package_Id"].Value);
+                            command.ExecuteNonQuery();
+                        }
+
+                    }
+                    
+
+
+                      
+                    
+                }
+            }
         }
 
+
+
+        #region -- Removing of Queued Services/Packages --
         private void dtgServiceTransact_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
 
-            currentSelectedRow = dtgServiceTransact.SelectedRows[0];
+            currentSelectedRowServices = dtgServiceTransact.SelectedRows[0];
                  
 
 
@@ -494,14 +560,157 @@ namespace Jazzydior
             //    }
             //    );
         }
+        private void dtgPackageTransact_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            currentSelectedRowPackages = dtgPackageTransact.SelectedRows[0];
+        }
+        private void btnRemoveServices_Click(object sender, EventArgs e)
+        {
+            
+            if(currentSelectedRowPackages == null && currentSelectedRowServices == null)
+            {   //break the flow, since we can't process anything without selection
+                return;
 
+            }
+
+            if(currentSelectedRowServices != null)
+            {
+                RemoveInCart<DataGridViewRow, DataGridView>(currentSelectedRowServices, dtgServiceTransact, false);
+            }
+            else if (currentSelectedRowPackages != null)
+            {
+                RemoveInCart<DataGridViewRow, DataGridView>(currentSelectedRowPackages, dtgPackageTransact, true);
+            }
+           
+
+            ProcessUI();
+
+
+
+        }
+
+        private void RemoveInCart<T,S>(T SelectionType, S DGV , bool ispackage) 
+                where T :  DataGridViewRow
+                where S : DataGridView
+        {
+            var priceColumn = ispackage ? 8 : 5;
+
+            transaction.TotalAmount -= (decimal)SelectionType.Cells[priceColumn].Value;
+
+            transaction.AmountDue -= (decimal)SelectionType.Cells[priceColumn].Value;
+            // Compute VAT
+            this.transaction.VAT = this.transaction.AmountDue * 0.12M;
+            //Compute Vatable
+            this.transaction.Vatable = this.transaction.AmountDue - this.transaction.VAT;
+            // remove the row from the corresponding datagrid
+            DGV.Rows.Remove(SelectionType);
+
+            // set the selection back to null
+            currentSelectedRowPackages = null;
+            currentSelectedRowServices = null;
+            SelectionType = null;
+            DGV.ClearSelection();
+            DGV = null;
+            ProcessUI();
+        }
+
+
+        #endregion
+        #region -- Printing Invoice --
+
+        private void ProcessPrinting()
+        {
+            PrinterSettings printerSettings = new PrinterSettings();
+            PaperSize paperSize = new PaperSize("Custom", 100, 200);
+
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Document.DefaultPageSettings.PaperSize = paperSize;
+
+            printDocument1.DefaultPageSettings.PaperSize.Height= 820;//820
+            printDocument1.DefaultPageSettings.PaperSize.Width= 520;//520
+
+            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+            DialogResult result = printPreviewDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                PrintPreviewDialog pp = new PrintPreviewDialog();
+                pp.Document = printDocument1;
+                result = pp.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
+            }
+
+
+
+        }
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
-            Image logo = Image.FromFile(@"C:\Users\admin\Downloads\logo.png");
-            
-            e.Graphics?.DrawImage(ResizeImage(logo,100,100), new Point(50, 50));
-            e.Graphics.DrawString("**********************", new Font(FontFamily.GenericMonospace,12,FontStyle.Bold), Brushes.Black, new Point(1, 20));
+            //Image logo = Image.FromFile(@"C:\Users\admin\Downloads\logo.png");
+
+            //e.Graphics?.DrawImage(ResizeImage(logo,100,100), new Point(50, 50));
+            //e.Graphics.DrawString("**********************", new Font(FontFamily.GenericMonospace,12,FontStyle.Bold), Brushes.Black, new Point(1, 20));
+            //e.Graphics.DrawString(
+            //    "JAZZYDIOR BEAUTY LOUNGE", 
+            //    new Font(FontFamily.GenericSansSerif, 15,FontStyle.Bold),
+
+            //    Brushes.DeepPink,
+            //     new Point(Top, 20));
+            //e.Graphics.DrawString("Pres ML Quezon, Suba, Bantayan, Cebu",new Font(FontFamily.GenericMonospace,12,FontStyle.Italic),
+            //Brushes.Black,
+            //new Point(30,30)
+            // );
+
+
+
+
+            Graphics graphics = e.Graphics;
+            Font font = new Font("Consolas", 10); //Courier New
+            float fontHeight = font.GetHeight();
+            int startX = 35;
+            int startY = 55;
+            int Offset = 40;
+            String underLine = "---------------------------------";
+            graphics.DrawString("Welcome to JazzyDior Beauty Lounge", new Font("Courier New", 14, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Pres ML Quezon, Suba, Bantayan, Cebu", new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString(underLine, new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Transaction Date: " + DateTime.Now.ToString(), new Font("Courier New", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Staff: " + cmbTransactStaffFName.Text, new Font("Courier New", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString(underLine, new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Customer : " + txtBoxCustName.Text, new Font("Courier New", 12 , FontStyle.Italic), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+
+
+            graphics.DrawString(underLine, new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Amount Due: " + string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.AmountDue), new Font("Courier New", 16, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+            graphics.DrawString("Total: " + string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.TotalAmount), new Font("Courier New", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+
+            if(transaction.Discount > 0)
+            {
+                graphics.DrawString("Discount: " + string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.Discount), new Font("Courier New", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+                Offset = Offset + 20;
+
+            }
+
+
+            graphics.DrawString("Amount Tendered: " + string.Format(new CultureInfo("fil-PH"), "{0:C}", this.transaction.AmountTendered), new Font("Courier New", 12), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+
+
         }
 
         private void printPreviewDialog1_Load(object sender, EventArgs e)
@@ -526,5 +735,9 @@ namespace Jazzydior
 
             return resizedImage;
         }
+
+        #endregion
+
+       
     }
 }

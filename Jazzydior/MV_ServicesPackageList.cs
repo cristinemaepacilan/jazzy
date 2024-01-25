@@ -38,7 +38,7 @@ namespace Jazzydior
             cmbPckgService4.Items.Clear();
             cmbPckgService5.Items.Clear();
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             
             con.Open();
             SqlCommand cmd = new SqlCommand();
@@ -71,7 +71,7 @@ namespace Jazzydior
     // Store Inputted Data to DataGrid
         private void GetPackageRecord()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("Select * from servicepackage", con);
             DataTable dt = new DataTable();
 

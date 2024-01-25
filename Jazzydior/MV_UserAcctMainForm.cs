@@ -32,7 +32,7 @@ namespace Jazzydior
     // Load Data to ComboBox User Position
         private void LoadComboboxUserPosition()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("Select * from position", con);
 
             try
@@ -63,7 +63,7 @@ namespace Jazzydior
                         "INNER JOIN  position p ON ua.user_PositionID = p.position_ID";
 
 
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand(query, con);
 
 

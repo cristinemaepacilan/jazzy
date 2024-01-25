@@ -112,3 +112,41 @@ C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\JazzydiorBLSales
 C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.exe
 C:\Users\admin\Desktop\JazzydiorOLD - Final\Jazzydior\obj\Debug\Jazzydior.pdb
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\bin\Debug\Jazzydior.exe.config
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\bin\Debug\Jazzydior.exe
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\bin\Debug\Jazzydior.pdb
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.AssemblyReference.cache
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.LoadingForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveMainForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveSales.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveServices.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ArchiveStaffs.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.ManagerView.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_Home.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_RSalesPrintReview.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesCategoryList.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesPackageList.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.Receipt.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SearchServices.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SR_NewTransaction.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListAddNew.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_StaffsListAddNew.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_UserCreateAcct.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.FrmReceipts.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SalonReceptionistView.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ReportsMainForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_UserPosition.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.LoginForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_RSalesReport.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_RTransactionReport.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_ServicesListMainForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_StaffListMainForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.Properties.Resources.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SR_Discount.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SR_Home.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.SR_TransactionReport.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.MV_UserAcctMainForm.resources
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.GenerateResource.cache
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\JazzydiorBLSalesMSwithCustomersReceipt.csproj.CoreCompileInputs.cache
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.exe
+C:\Users\Nigel Anthony\Desktop\Misc\jazzy\Jazzydior\obj\Debug\Jazzydior.pdb

@@ -27,7 +27,7 @@ namespace Jazzydior
     // Load Position Data to the ComboBox
         private void MV_StaffsListAddNew_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("Select * from position", con);
 
             try

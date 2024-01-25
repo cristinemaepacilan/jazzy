@@ -25,6 +25,7 @@ namespace Jazzydior
             this.Dispose();
         }
 
+        // Add Discount
         private void btnOkay_Click(object sender, EventArgs e)
         {
             dynamic discount = Convert.ToDecimal(txtBoxDiscount.Text.Trim());
@@ -37,18 +38,28 @@ namespace Jazzydior
             {
                 var percenttoDecimal = discount / 100 ;
                 this.transactionForm.transaction.Discount =  Convert.ToDecimal(transactionForm.transaction.AmountDue * percenttoDecimal) ;
-                this.transactionForm.transaction.AmountDue = Math.Round(this.transactionForm.transaction.AmountDue - this.transactionForm.transaction.Discount,2,MidpointRounding.AwayFromZero);
+                this.transactionForm.transaction.Discount = Math.Round(transactionForm.transaction.Discount, 2);
+                this.transactionForm.transaction.AmountDue = Math.Round(this.transactionForm.transaction.AmountDue -this.transactionForm.transaction.Discount,2,MidpointRounding.AwayFromZero);
             }
             this.transactionForm.ProcessUI();
             this.Dispose();
         }
-
+        // Remove Discount
         private void btnRemoveDiscount_Click(object sender, EventArgs e)
         {
-            transactionForm.transaction.AmountDue += transactionForm.transaction.Discount;
-            transactionForm.transaction.Discount = 0M;
-            transactionForm.ProcessUI();
-            this.Dispose();
+            if(transactionForm.transaction.Discount > 0)
+            {
+                transactionForm.transaction.AmountDue += transactionForm.transaction.Discount;
+                transactionForm.transaction.Discount = 0M;
+                transactionForm.ProcessUI();
+                this.Dispose();
+
+            }
+            else
+            {
+                return;
+            }
+        
         }
     }
 }

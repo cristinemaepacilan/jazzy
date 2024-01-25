@@ -9,7 +9,13 @@ namespace Jazzydior.BusinessClass
     public class Transact
     {
         public int TransID { get; set; }
+
+        public string TransactionNo { get; set; }
         public string TransCustomer { get; set; }
+        /// <summary>
+        /// For total , before VATs and Discounts
+        /// </summary>
+        public decimal TotalAmount { get; set; }
         public decimal AmountTendered { get; set; }
         public decimal AmountDue { get; set; }
         public decimal Change { get; set; }

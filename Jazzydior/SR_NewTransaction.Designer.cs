@@ -84,15 +84,12 @@
             this.SearchStaffsTopPanel = new System.Windows.Forms.Panel();
             this.lblSettlePaymentTopTitle = new System.Windows.Forms.Label();
             this.btnRemoveServices = new System.Windows.Forms.Button();
-            this.lblStaffFName = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTStaffName = new System.Windows.Forms.Label();
             this.lblTCustName = new System.Windows.Forms.Label();
-            this.lblStaffLName = new System.Windows.Forms.Label();
             this.dtgPackageTransact = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbTransactStaffFName = new System.Windows.Forms.ComboBox();
-            this.cmbTransactStaffLName = new System.Windows.Forms.ComboBox();
             this.txtBoxCustName = new System.Windows.Forms.TextBox();
             this.lblAddStaff = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -101,6 +98,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SRNewTransactTopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgServiceTransact)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelNewTransactLower)).BeginInit();
@@ -338,7 +337,7 @@
             this.lblSalesTotal.ForeColor = System.Drawing.Color.LawnGreen;
             this.lblSalesTotal.Location = new System.Drawing.Point(935, 60);
             this.lblSalesTotal.Name = "lblSalesTotal";
-            this.lblSalesTotal.Size = new System.Drawing.Size(128, 56);
+            this.lblSalesTotal.Size = new System.Drawing.Size(128, 55);
             this.lblSalesTotal.TabIndex = 62;
             this.lblSalesTotal.Text = "0.00";
             this.lblSalesTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -398,7 +397,7 @@
             this.lblVatable.ForeColor = System.Drawing.Color.White;
             this.lblVatable.Location = new System.Drawing.Point(1061, 171);
             this.lblVatable.Name = "lblVatable";
-            this.lblVatable.Size = new System.Drawing.Size(52, 22);
+            this.lblVatable.Size = new System.Drawing.Size(49, 21);
             this.lblVatable.TabIndex = 82;
             this.lblVatable.Text = "0.00";
             // 
@@ -410,7 +409,7 @@
             this.lblDiscount.ForeColor = System.Drawing.Color.White;
             this.lblDiscount.Location = new System.Drawing.Point(1060, 232);
             this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(52, 22);
+            this.lblDiscount.Size = new System.Drawing.Size(49, 21);
             this.lblDiscount.TabIndex = 84;
             this.lblDiscount.Text = "0.00";
             // 
@@ -422,7 +421,7 @@
             this.lblVAT.ForeColor = System.Drawing.Color.White;
             this.lblVAT.Location = new System.Drawing.Point(1061, 200);
             this.lblVAT.Name = "lblVAT";
-            this.lblVAT.Size = new System.Drawing.Size(52, 22);
+            this.lblVAT.Size = new System.Drawing.Size(49, 21);
             this.lblVAT.TabIndex = 85;
             this.lblVAT.Text = "0.00";
             // 
@@ -857,17 +856,6 @@
             this.btnRemoveServices.UseVisualStyleBackColor = false;
             this.btnRemoveServices.Click += new System.EventHandler(this.btnRemoveServices_Click);
             // 
-            // lblStaffFName
-            // 
-            this.lblStaffFName.AutoSize = true;
-            this.lblStaffFName.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffFName.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.lblStaffFName.Location = new System.Drawing.Point(190, 124);
-            this.lblStaffFName.Name = "lblStaffFName";
-            this.lblStaffFName.Size = new System.Drawing.Size(83, 17);
-            this.lblStaffFName.TabIndex = 100;
-            this.lblStaffFName.Text = "Firstname";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -899,17 +887,6 @@
             this.lblTCustName.Size = new System.Drawing.Size(170, 19);
             this.lblTCustName.TabIndex = 96;
             this.lblTCustName.Text = "Customer\'s Name :";
-            // 
-            // lblStaffLName
-            // 
-            this.lblStaffLName.AutoSize = true;
-            this.lblStaffLName.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffLName.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.lblStaffLName.Location = new System.Drawing.Point(350, 124);
-            this.lblStaffLName.Name = "lblStaffLName";
-            this.lblStaffLName.Size = new System.Drawing.Size(83, 17);
-            this.lblStaffLName.TabIndex = 102;
-            this.lblStaffLName.Text = "Lastname";
             // 
             // dtgPackageTransact
             // 
@@ -954,6 +931,7 @@
             this.dtgPackageTransact.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgPackageTransact.Size = new System.Drawing.Size(870, 200);
             this.dtgPackageTransact.TabIndex = 103;
+            this.dtgPackageTransact.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgPackageTransact_CellClick);
             // 
             // label1
             // 
@@ -977,20 +955,8 @@
             this.cmbTransactStaffFName.FormattingEnabled = true;
             this.cmbTransactStaffFName.Location = new System.Drawing.Point(190, 140);
             this.cmbTransactStaffFName.Name = "cmbTransactStaffFName";
-            this.cmbTransactStaffFName.Size = new System.Drawing.Size(157, 27);
+            this.cmbTransactStaffFName.Size = new System.Drawing.Size(246, 27);
             this.cmbTransactStaffFName.TabIndex = 105;
-            // 
-            // cmbTransactStaffLName
-            // 
-            this.cmbTransactStaffLName.BackColor = System.Drawing.Color.Ivory;
-            this.cmbTransactStaffLName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTransactStaffLName.Font = new System.Drawing.Font("Lucida Sans", 10F, System.Drawing.FontStyle.Bold);
-            this.cmbTransactStaffLName.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.cmbTransactStaffLName.FormattingEnabled = true;
-            this.cmbTransactStaffLName.Location = new System.Drawing.Point(353, 140);
-            this.cmbTransactStaffLName.Name = "cmbTransactStaffLName";
-            this.cmbTransactStaffLName.Size = new System.Drawing.Size(166, 27);
-            this.cmbTransactStaffLName.TabIndex = 106;
             // 
             // txtBoxCustName
             // 
@@ -1012,7 +978,7 @@
             this.lblAddStaff.ForeColor = System.Drawing.Color.MistyRose;
             this.lblAddStaff.Location = new System.Drawing.Point(15, 181);
             this.lblAddStaff.Name = "lblAddStaff";
-            this.lblAddStaff.Size = new System.Drawing.Size(124, 29);
+            this.lblAddStaff.Size = new System.Drawing.Size(115, 28);
             this.lblAddStaff.TabIndex = 108;
             this.lblAddStaff.Text = "Service List";
             // 
@@ -1035,7 +1001,7 @@
             this.label5.ForeColor = System.Drawing.Color.MistyRose;
             this.label5.Location = new System.Drawing.Point(15, 507);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(139, 29);
+            this.label5.Size = new System.Drawing.Size(132, 28);
             this.label5.TabIndex = 110;
             this.label5.Text = "Package List";
             // 
@@ -1077,6 +1043,30 @@
             this.printPreviewDialog1.Visible = false;
             this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.lblTotal.Font = new System.Drawing.Font("Lucida Sans", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTotal.Location = new System.Drawing.Point(1061, 138);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(49, 21);
+            this.lblTotal.TabIndex = 114;
+            this.lblTotal.Text = "0.00";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.MediumVioletRed;
+            this.label7.Font = new System.Drawing.Font("Lucida Sans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.MistyRose;
+            this.label7.Location = new System.Drawing.Point(897, 138);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 17);
+            this.label7.TabIndex = 113;
+            this.label7.Text = "Total  :";
+            // 
             // SR_NewTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 23F);
@@ -1084,14 +1074,13 @@
             this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(1145, 754);
             this.ControlBox = false;
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.lblAddStaff);
             this.Controls.Add(this.txtBoxCustName);
-            this.Controls.Add(this.cmbTransactStaffLName);
             this.Controls.Add(this.cmbTransactStaffFName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblStaffLName);
-            this.Controls.Add(this.lblStaffFName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTStaffName);
             this.Controls.Add(this.lblTCustName);
@@ -1201,15 +1190,12 @@
         private System.Windows.Forms.Button btn8;
         private System.Windows.Forms.Button btn7;
         private System.Windows.Forms.Button btnRemoveServices;
-        private System.Windows.Forms.Label lblStaffFName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTStaffName;
         private System.Windows.Forms.Label lblTCustName;
-        private System.Windows.Forms.Label lblStaffLName;
         private System.Windows.Forms.DataGridView dtgPackageTransact;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbTransactStaffFName;
-        private System.Windows.Forms.ComboBox cmbTransactStaffLName;
         private System.Windows.Forms.TextBox txtBoxCustName;
         private System.Windows.Forms.Label lblAddStaff;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -1218,5 +1204,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label label7;
     }
 }

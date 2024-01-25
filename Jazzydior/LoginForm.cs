@@ -53,7 +53,7 @@ namespace Jazzydior
                 {
                     try
                     {
-                        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+                        SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
 
                         SqlCommand cmd = new SqlCommand("Select * from userAccount WHERE user_Username = @user_Username and user_Pass = @user_Pass", con);
                         cmd.Parameters.AddWithValue("@user_Username", txtBoxLoginUser.Text);

@@ -107,6 +107,7 @@ namespace Jazzydior
             this.dtgSalesReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgSalesReport.Size = new System.Drawing.Size(1121, 497);
             this.dtgSalesReport.TabIndex = 26;
+            this.dtgSalesReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgSalesReport_CellContentClick);
             // 
             // lblSalesTotal
             // 

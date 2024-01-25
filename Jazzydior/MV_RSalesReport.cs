@@ -29,25 +29,38 @@ namespace Jazzydior
             //GetSalesRecord();
         }
 
-        //private void GetSalesRecord()
-        //{
-        //        var query = "Select trans_ID, trans_No, trans_CustName, trans_Service, trans_StaffID, st.staff_FName, " +
-        //        "trans_Discount, trans_Date, trans_AmountTendered, trans_AmountDue, trans_VATSales, trans_VATAmount, trans_Time from  reports r " +
-        //        "INNER JOIN  staffs st ON r.StaffID = st.staff_ID";
+        private void dtgSalesReport_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+       private void GetTransaction()
+        {
+            var query = "SELECT * FROM reports";
 
 
-        //        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
-        //        SqlCommand cmd = new SqlCommand(query, con);
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand(query, con);
 
 
-        //        con.Open();
-        //        SqlDataReader sdr = cmd.ExecuteReader();
-        //        DataTable dt = new DataTable("reports");
-        //        dt.Load(sdr);
-        //        var tname = dt.TableName;
-        //        con.Close();
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable("transaction");
+            dt.Load(sdr);
+            var tname = dt.TableName;
+            con.Close();
 
-        //        dtgSalesReport.DataSource = dt;
-        //}
+            dtgSalesReport.DataSource = dt;
+
+            // Change the Column Name
+            dtgSalesReport.Columns["trans_CustName"].HeaderText = "Service ID No";
+            dtgSalesReport.Columns["serv_Name"].HeaderText = "Name";
+            dtgSalesReport.Columns[2].Visible = false;
+            dtgSalesReport.Columns["serv_CategoryID"].HeaderText = "CategoryID";
+            dtgSalesReport.Columns["serv_CategoryName"].HeaderText = "Category";
+            dtgSalesReport.Columns["serv_LeadTime"].HeaderText = "Lead Time";
+            dtgSalesReport.Columns["serv_Price"].HeaderText = "Price";
+
+        }
     }
 }

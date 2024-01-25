@@ -13,7 +13,7 @@ namespace Jazzydior.DBClass
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"Data Source=DESKTOP-N8ORNKQ\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True";
+            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True";
             SqlConnection con = new SqlConnection(connectionString);
 
             return con;

@@ -25,7 +25,8 @@ namespace Jazzydior
         // Load Inputted Data to DataGrid
         private void MV_Archive_Load(object sender, EventArgs e)
         {
-                    }
+        
+        }
 
     //Services Button in Archive Page
         private void btnArchiveServices_Click(object sender, EventArgs e)
@@ -96,5 +97,9 @@ namespace Jazzydior
             }
         }
 
+        private void dtgArchiveServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }

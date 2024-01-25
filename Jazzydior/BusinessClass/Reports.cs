@@ -11,16 +11,15 @@ namespace Jazzydior.BusinessClass
         public int TransactionID { get; set; }
         public string TransactionNo { get; set; }
         public string CustomerName { get; set; }
-        public string TransService { get; set; }
         public int TransStaffID { get; set; }
-        public string Discount { get; set; }
-        public string TransTotalAmount { get; set; }
-        public string TransDate { get; set; }
-        public string TransTime { get; set; }
-        public string TransAmountTendered { get; set; }
-        public string TransAmountDue { get; set; }
-        public string TransVATSales { get; set; }
-        public string TransVATAmount { get; set; }
+        public decimal Discount { get; set; }
+        public decimal TransTotalAmount { get; set; }
+        public DateTime TransDate { get; set; }
+        public DateTime TransTime { get; set; }
+        public decimal TransAmountTendered { get; set; }
+        public decimal TransAmountDue { get; set; }
+        public decimal TransVATSales { get; set; }
+        public decimal TransVATAmount { get; set; }
 
     }
 }

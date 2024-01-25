@@ -30,9 +30,9 @@ namespace Jazzydior
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SR_TransactionReport));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtBoxTransactionSearch = new System.Windows.Forms.TextBox();
             this.lblTransactionSearch = new System.Windows.Forms.Label();
             this.btnTransactionLoad = new System.Windows.Forms.Button();
@@ -60,6 +60,7 @@ namespace Jazzydior
             this.txtBoxTransactionSearch.Name = "txtBoxTransactionSearch";
             this.txtBoxTransactionSearch.Size = new System.Drawing.Size(293, 30);
             this.txtBoxTransactionSearch.TabIndex = 34;
+            this.txtBoxTransactionSearch.TextChanged += new System.EventHandler(this.txtBoxTransactionSearch_TextChanged);
             // 
             // lblTransactionSearch
             // 
@@ -113,37 +114,37 @@ namespace Jazzydior
             this.dtgTransactionRep.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dtgTransactionRep.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtgTransactionRep.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgTransactionRep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgTransactionRep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtgTransactionRep.ColumnHeadersHeight = 50;
             this.dtgTransactionRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgTransactionRep.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgTransactionRep.DefaultCellStyle = dataGridViewCellStyle8;
             this.dtgTransactionRep.EnableHeadersVisualStyles = false;
             this.dtgTransactionRep.Location = new System.Drawing.Point(13, 136);
             this.dtgTransactionRep.Margin = new System.Windows.Forms.Padding(4);
             this.dtgTransactionRep.Name = "dtgTransactionRep";
             this.dtgTransactionRep.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgTransactionRep.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Lucida Handwriting", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgTransactionRep.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dtgTransactionRep.RowHeadersWidth = 30;
             this.dtgTransactionRep.RowTemplate.Height = 24;
             this.dtgTransactionRep.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -159,6 +160,7 @@ namespace Jazzydior
             this.dateTimePickerTransactionTo.Name = "dateTimePickerTransactionTo";
             this.dateTimePickerTransactionTo.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerTransactionTo.TabIndex = 41;
+            this.dateTimePickerTransactionTo.ValueChanged += new System.EventHandler(this.dateTimePickerTransactionTo_ValueChanged);
             // 
             // lblTransactionTo
             // 
@@ -181,6 +183,7 @@ namespace Jazzydior
             this.dateTimePickerTransactionFrom.Name = "dateTimePickerTransactionFrom";
             this.dateTimePickerTransactionFrom.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerTransactionFrom.TabIndex = 39;
+            this.dateTimePickerTransactionFrom.ValueChanged += new System.EventHandler(this.dateTimePickerTransactionFrom_ValueChanged);
             // 
             // lblTransactionFrom
             // 
