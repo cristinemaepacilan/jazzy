@@ -16,6 +16,10 @@ namespace Jazzydior
     public partial class MV_ArchiveMainForm : Form
     {
 
+        private DataGridViewRow currentServicesSelection;
+        private DataGridViewRow currentStaffSelection;
+
+
         public MV_ArchiveMainForm()
         {
             InitializeComponent();
@@ -25,81 +29,278 @@ namespace Jazzydior
         // Load Inputted Data to DataGrid
         private void MV_Archive_Load(object sender, EventArgs e)
         {
-        
+            LoadServiceArchive();
+            LoadStaffArchive();
         }
 
-    //Services Button in Archive Page
-        private void btnArchiveServices_Click(object sender, EventArgs e)
+
+        private void LoadServiceArchive()
         {
-            MV_ArchiveServices frm = new MV_ArchiveServices();
-            frm.TopLevel = false;
-            panelSwitchArchive.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
+
+
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText ="  SELECT [arcServ_ID] ,[arcServ_Name],[arcServ_Category],[arcServ_LeadTime] ,[arcServ_Price],sc.serv_CategoryName" +
+                " FROM archiveService  ar INNER JOIN  servicesCategory sc ON ar.arcServ_Category = sc.serv_CatID";
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable("archive");
+            dt.Load(sdr);
+            var tname = dt.TableName;
+            con.Close();
+
+            dtgArchiveServices.DataSource = dt;
+
+            // Change the Column Name
+            dtgArchiveServices.Columns["arcServ_ID"].Visible = false;
+            dtgArchiveServices.Columns["arcServ_Name"].HeaderText = "Service Name";
+            dtgArchiveServices.Columns["arcServ_Category"].Visible = false;
+            dtgArchiveServices.Columns["serv_CategoryName"].HeaderText = "Category";
+            dtgArchiveServices.Columns["arcServ_LeadTime"].HeaderText = "Lead Time";
+            dtgArchiveServices.Columns["arcServ_Price"].HeaderText = "Price";
+
+            
+
+
         }
 
-//Staffs Button in Archive Page
-        private void btnArchiveStaff_Click(object sender, EventArgs e)
+        private void LoadStaffArchive()
         {
-            MV_ArchiveStaffs frm = new MV_ArchiveStaffs();
-            frm.TopLevel = false;
-            panelSwitchArchive.Controls.Add(frm);
-            frm.BringToFront();
-            frm.Show();
+
+
+            SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=JazzyBL_SalesMS_&_CustomersReceipt;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText ="spGetArchivedStaff";
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            con.Open();
+            SqlDataReader sdr = cmd.ExecuteReader();
+            DataTable dt = new DataTable("staffArchive");
+            dt.Load(sdr);
+            var tname = dt.TableName;
+            con.Close();
+
+            dtgArchiveStaffs.DataSource = dt;
+
+
+            dtgArchiveStaffs.Columns["Staff Name"].HeaderText = "Staff Name";
+            dtgArchiveStaffs.Columns["staff_Sex"].HeaderText = "Sex";
+            dtgArchiveStaffs.Columns["Position"].HeaderText = "Position";
+            dtgArchiveStaffs.Columns["staff_Street"].HeaderText = "Street";
+            dtgArchiveStaffs.Columns["staff_BuildingNo"].HeaderText = "Building No";
+            dtgArchiveStaffs.Columns["staff_HouseNo"].HeaderText = "House No";
+            dtgArchiveStaffs.Columns["staff_Purok"].HeaderText = "Purok";
+            dtgArchiveStaffs.Columns["staff_Brgy"].HeaderText = "Brgy";
+            dtgArchiveStaffs.Columns["staff_City"].HeaderText = "City";
+            dtgArchiveStaffs.Columns["staff_Province"].HeaderText = "Province";
+            dtgArchiveStaffs.Columns["staff_Country"].HeaderText = "Country";
+            dtgArchiveStaffs.Columns["staff_ContactNo"].HeaderText = "Contact No";
+            dtgArchiveStaffs.Columns["staff_Email"].HeaderText = "Email Address";
+            dtgArchiveStaffs.Columns["staff_Status"].HeaderText = "Status";
+            dtgArchiveStaffs.Columns["archive_ID"].Visible = false;
+            dtgArchiveStaffs.Columns["staff_FName"].Visible=false;
+            dtgArchiveStaffs.Columns["staff_LName"].Visible=false;
+
+
+
+
         }
 
-//Sales Button in Archive Page
-        private void btnArchiveSales_Click(object sender, EventArgs e)
-            {
-                MV_ArchiveSales frm = new MV_ArchiveSales();
-                frm.TopLevel = false;
-                panelSwitchArchive.Controls.Add(frm);
-                frm.BringToFront();
-                frm.Show();
-            }
 
-// Exit Application
-        private void btnLogoutArchive_Click(object sender, EventArgs e)
+
+
+        private void dtgArchiveServices_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (MessageBox.Show("You are about to leave this application and you'll need to log in again.", "Are you sure you want to logout?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-
-            {
-                Application.Exit();
-            }
+            dtgArchiveStaffs.ClearSelection();
+            currentStaffSelection = null;
+            currentServicesSelection = dtgArchiveServices.SelectedRows[0];
+           
         }
 
-    // Delete Permanently Button
+        private void dtgArchiveStaffs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dtgArchiveServices.ClearSelection();
+            currentServicesSelection = null;
+            currentStaffSelection = dtgArchiveStaffs.SelectedRows[0];
+        }
+           
         private void btnArchiveServiceDelete_Click(object sender, EventArgs e)
         {
-            Services deleteService = new Services();
-
-            //deleteService.ServiceName = txtBoxAddServicesName.Text;
-            //deleteService.ServiceID = Convert.ToInt32(txtBoxServID.Text);
-            //deleteService.ServiceCategory = txtBoxAddServicesCategory.Text;
-            //deleteService.ServiceLeadTime = txtBoxAddServiceLeadTime.Text;
-            //deleteService.ServicePrice = Convert.ToDouble(txtBoxAddServicePrice.Text);
-
-            if (MessageBox.Show("This details will be deleted permanently! Are you sure you want to proceed?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                MessageBox.Show("Successfully deleted.");
-            }
-
-            ServicesDB.DeleteServices(deleteService);
-            //GetServiceRecord();
+              if(currentStaffSelection == null && currentServicesSelection == null)
+                    {
+                return;
+                    }
+                if(currentServicesSelection != null)
+                {
+                DeleteArchive<DataGridView, DataGridViewRow>(dtgArchiveServices, currentServicesSelection, true);
+                 }
+                else if( currentStaffSelection != null)
+                {
+                DeleteArchive<DataGridView, DataGridViewRow>(dtgArchiveStaffs, currentStaffSelection, false);
+                }
+                  
+               
+           
         }
 
-        public void SetSelectedData(List<string> data)
+     
+        private void DeleteArchive<T, S>(T DGV, S SelectionRow, bool isService)
+            where T : DataGridView
+            where S : DataGridViewRow
         {
-            // Populate DataGridView in Form2 with selected data
-            foreach (string item in data)
+
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
-                dtgArchiveServices.Rows.Add(item);
+                var table = isService ? "archiveService" : "staffs_archive";
+                var criteria = isService ? "arcServ_ID" : "archive_ID";
+                string deleteStatement = $" DELETE FROM {table}  WHERE {criteria} = @criteriaID";
+
+
+                SqlCommand insertCommand = new SqlCommand(deleteStatement, connection);
+
+                insertCommand.Parameters.AddWithValue("@criteriaID",(int)SelectionRow.Cells[criteria].Value);
+
+                try
+                {
+                    connection.Open();
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+
+                DGV.Rows.Remove(SelectionRow);
+                if(isService )
+                {
+                    LoadServiceArchive();
+                    currentServicesSelection = null;
+                }
+                else
+                {
+                    LoadStaffArchive();
+                    currentStaffSelection = null;
+                }
+
+
+                DGV.ClearSelection();
+
+
+
+
             }
+
+
+
+
+
+
+
+        }
+        private void RestoreArchive<T, S>(T DGV, S SelectionRow, bool isService)
+          where T : DataGridView
+          where S : DataGridViewRow
+        {
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                var table = isService ? "archiveService" : "staffs_archive";
+                var restoretable = isService ? "[services]" : "[staffs]";
+                var criteria = isService ? "arcServ_ID" : "archive_ID";
+                string uniqueID = new Random().Next(1000,5000).ToString();
+                var id = (int)SelectionRow.Cells[criteria].Value;
+
+                var columnsServices = "serv_Name, serv_CategoryID, serv_LeadTime, serv_Price";
+                var columnsStaff = "staff_FName,"+
+                                    "staff_LName,"+
+                                   " staff_PositionID,"+
+                                    "staff_Sex,"+
+                                   " staff_Street,"+
+                                   " staff_BuildingNo,"+
+                                   " staff_HouseNo,"+
+                                   " staff_Purok,"+
+                                   " staff_Brgy,"+
+                                   " staff_City,"+
+                                   " staff_Province,"+
+                                   " staff_Country,"+
+                                   " staff_ContactNo,"+
+                                   " staff_Email,"+
+                                  "  staff_Status";
+                var columns = isService ? columnsServices : columnsStaff;
+
+                //string deleteStatement = $" DELETE FROM {table}  WHERE {criteria} = @criteriaID";
+                var sqlStatement = $"SELECT * INTO #{table+uniqueID} FROM {table} WHERE {criteria} = @criteriaID" +
+                                    $" ALTER TABLE #{table+uniqueID} " +
+                                    $" DROP COLUMN {criteria}" +
+                                    $" INSERT INTO {restoretable} ({columns}) SELECT * FROM #{table+uniqueID}" +
+                                    $" DELETE FROM {table} WHERE {criteria} = @criteriaID " +
+                                    $" DROP TABLE #{table+uniqueID}";
+
+
+
+
+                SqlCommand insertCommand = new SqlCommand(sqlStatement, connection);
+
+                insertCommand.Parameters.AddWithValue("@criteriaID", (int)SelectionRow.Cells[criteria].Value);
+
+                try
+                {
+                    connection.Open();
+                    insertCommand.ExecuteNonQuery();
+                }
+
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+
+                DGV.Rows.Remove(SelectionRow);
+                if (isService)
+                {
+                    LoadServiceArchive();
+                    currentServicesSelection = null;
+                }
+                else
+                {
+                    LoadStaffArchive();
+                    currentStaffSelection = null;
+                }
+
+
+                DGV.ClearSelection();
+
+
+
+
+            }
+
+
+
+
+
+
+
         }
 
-        private void dtgArchiveServices_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnArchiveServiceRestore_Click(object sender, EventArgs e)
         {
-            
+            if (currentStaffSelection == null && currentServicesSelection == null)
+            {
+                return;
+            }
+            if (currentServicesSelection != null)
+            {
+                RestoreArchive<DataGridView, DataGridViewRow>(dtgArchiveServices, currentServicesSelection, true);
+            }
+            else if (currentStaffSelection != null)
+            {
+                RestoreArchive<DataGridView, DataGridViewRow>(dtgArchiveStaffs, currentStaffSelection, false);
+            }
         }
     }
 }

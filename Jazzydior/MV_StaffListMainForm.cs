@@ -27,6 +27,7 @@ namespace Jazzydior
         {
            GetStaffRecord();
            LoadComboboxStaffPosition();
+            
         }
 
     // Load Inputted Data to DataGrid
@@ -124,14 +125,7 @@ namespace Jazzydior
             txtBoxStaffsLastname.Text = data.Cells[2].Value;
             cmbCreateAcctPosition.SelectedValue = data.Cells[3].Value;
 
-            if (data.Cells[4].Value == "Male")
-            {
-                rbStaffsMale.Checked = true;
-            }
-            else
-            {
-                rbStaffsFemale.Checked = true;
-            }
+           
 
             txtBoxStaffsStreet.Text = data.Cells[6].Value;
             txtBoxStaffsBuilding.Text = Convert.ToString(data.Cells[7].Value);
@@ -144,13 +138,33 @@ namespace Jazzydior
             txtBoxStaffsContact.Text = Convert.ToString(data.Cells[14].Value);
             txtBoxStaffsEmail.Text = data.Cells[15].Value;
 
-            if (data.Cells[16].Value == "Employed")
+            var em = data.Cells[16].Value.ToString();
+
+
+            rbStaffEmployed.Checked = string.Equals(em, "Employed");
+            rbStaffUnemployed.Checked = !string.Equals(em, "Employed");
+            //if(string.Equals(em,"Employed"))
+            //{
+            //    rbStaffEmployed.Checked = true;
+            //    rbStaffUnemployed.Checked = false;
+            //}
+            //else
+            //{
+            //    rbStaffEmployed.Checked= false;
+            //    rbStaffUnemployed.Checked= true;
+            //}
+
+            if (data.Cells[5].Value.ToString() == "Male")
             {
-                rbStatusEmployed.Checked = true;
+                rbStaffsMale.Checked = true;
+                rbStaffsFemale.Checked = false;
+                
+
             }
             else
             {
-                rbStatusEmployed.Checked = true;
+                rbStaffsMale.Checked = false;
+                rbStaffsFemale.Checked = true;
             }
 
         }
@@ -172,7 +186,7 @@ namespace Jazzydior
                 txtBoxStaffsCity.Enabled = false;
                 txtBoxStaffsProvince.Enabled = false;
                 txtBoxStaffsCountry.Enabled = false;
-                rbStatusEmployed.Enabled = false;
+                rbStaffEmployed.Enabled = false;
                 rbStaffUnemployed.Enabled = false;
 
                 btnStaffsDelete.Enabled = false;
@@ -188,7 +202,7 @@ namespace Jazzydior
                 txtBoxStaffsCity.Enabled = true;
                 txtBoxStaffsProvince.Enabled = true;
                 txtBoxStaffsCountry.Enabled = true;
-                rbStatusEmployed.Enabled = true;
+                rbStaffEmployed.Enabled = true;
                 rbStaffUnemployed.Enabled = true;
 
             }
@@ -211,7 +225,7 @@ namespace Jazzydior
             updateStaff.StaffCity = txtBoxStaffsCity.Text;
             updateStaff.StaffProvince = txtBoxStaffsProvince.Text;
             updateStaff.StaffCountry = txtBoxStaffsCountry.Text;
-            updateStaff.StaffStatus = rbStatusEmployed.Checked ? "Employed" : "Unemployed";
+            updateStaff.StaffStatus = rbStaffEmployed.Checked ? "Employed" : "Unemployed";
 
             StaffsDB.UpdateStaffs(updateStaff);
 
@@ -238,7 +252,7 @@ namespace Jazzydior
             txtBoxStaffsCity.Enabled = true;
             txtBoxStaffsProvince.Enabled = true;
             txtBoxStaffsCountry.Enabled = true;
-            rbStatusEmployed.Enabled = true;
+            rbStaffEmployed.Enabled = true;
             rbStaffUnemployed.Enabled = true;
 
             btnStaffsUpdate.Text = "Edit";
@@ -255,7 +269,7 @@ namespace Jazzydior
             txtBoxStaffsCity.Enabled = false;
             txtBoxStaffsProvince.Enabled = false;
             txtBoxStaffsCountry.Enabled = false;
-            rbStatusEmployed.Enabled = false;
+            rbStaffEmployed.Enabled = false;
             rbStaffUnemployed.Enabled = false;
             }
         }
@@ -287,7 +301,7 @@ namespace Jazzydior
                 txtBoxStaffsCity.Enabled = false;
                 txtBoxStaffsProvince.Enabled = false;
                 txtBoxStaffsCountry.Enabled = false;
-                rbStatusEmployed.Enabled = false;
+                rbStaffEmployed.Enabled = false;
                 rbStaffUnemployed.Enabled = false;
 
                 btnStaffsUpdate.Text = "Edit";
@@ -371,12 +385,13 @@ namespace Jazzydior
             deleteStaff.StaffCity = txtBoxStaffsCity.Text;
             deleteStaff.StaffProvince = txtBoxStaffsProvince.Text;
             deleteStaff.StaffCountry = txtBoxStaffsCountry.Text;
-            deleteStaff.StaffStatus = rbStatusEmployed.Checked ? "Employed" : "Unemployed";
+            deleteStaff.StaffStatus = rbStaffEmployed.Checked ? "Employed" : "Unemployed";
 
-            StaffsDB.DeleteStaffs(deleteStaff);
+          
 
             if (MessageBox.Show("Are you sure you want to delete this staff details?", "Confirm Deleting Staff Details", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                StaffsDB.DeleteStaffs(deleteStaff);
                 MessageBox.Show("Successfully deleted.");
             }
             else

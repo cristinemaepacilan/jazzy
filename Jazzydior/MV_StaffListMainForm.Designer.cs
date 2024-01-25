@@ -40,7 +40,7 @@ namespace Jazzydior
             this.lblStaffForm = new System.Windows.Forms.Label();
             this.StaffsFormPanel = new System.Windows.Forms.Panel();
             this.rbStaffUnemployed = new System.Windows.Forms.RadioButton();
-            this.rbStatusEmployed = new System.Windows.Forms.RadioButton();
+            this.rbStaffEmployed = new System.Windows.Forms.RadioButton();
             this.rbStaffsMale = new System.Windows.Forms.RadioButton();
             this.rbStaffsFemale = new System.Windows.Forms.RadioButton();
             this.lblStaffsSex = new System.Windows.Forms.Label();
@@ -191,7 +191,7 @@ namespace Jazzydior
             this.StaffsFormPanel.AutoScroll = true;
             this.StaffsFormPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.StaffsFormPanel.Controls.Add(this.rbStaffUnemployed);
-            this.StaffsFormPanel.Controls.Add(this.rbStatusEmployed);
+            this.StaffsFormPanel.Controls.Add(this.rbStaffEmployed);
             this.StaffsFormPanel.Controls.Add(this.rbStaffsMale);
             this.StaffsFormPanel.Controls.Add(this.rbStaffsFemale);
             this.StaffsFormPanel.Controls.Add(this.lblStaffsSex);
@@ -247,25 +247,24 @@ namespace Jazzydior
             this.rbStaffUnemployed.Text = "Unemployed";
             this.rbStaffUnemployed.UseVisualStyleBackColor = false;
             // 
-            // rbStatusEmployed
+            // rbStaffEmployed
             // 
-            this.rbStatusEmployed.AutoSize = true;
-            this.rbStatusEmployed.BackColor = System.Drawing.Color.MistyRose;
-            this.rbStatusEmployed.Enabled = false;
-            this.rbStatusEmployed.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold);
-            this.rbStatusEmployed.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.rbStatusEmployed.Location = new System.Drawing.Point(63, 896);
-            this.rbStatusEmployed.Name = "rbStatusEmployed";
-            this.rbStatusEmployed.Size = new System.Drawing.Size(118, 24);
-            this.rbStatusEmployed.TabIndex = 113;
-            this.rbStatusEmployed.Text = "Employed";
-            this.rbStatusEmployed.UseVisualStyleBackColor = false;
+            this.rbStaffEmployed.AutoSize = true;
+            this.rbStaffEmployed.BackColor = System.Drawing.Color.MistyRose;
+            this.rbStaffEmployed.Enabled = false;
+            this.rbStaffEmployed.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold);
+            this.rbStaffEmployed.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.rbStaffEmployed.Location = new System.Drawing.Point(63, 896);
+            this.rbStaffEmployed.Name = "rbStaffEmployed";
+            this.rbStaffEmployed.Size = new System.Drawing.Size(118, 24);
+            this.rbStaffEmployed.TabIndex = 113;
+            this.rbStaffEmployed.Text = "Employed";
+            this.rbStaffEmployed.UseVisualStyleBackColor = false;
             // 
             // rbStaffsMale
             // 
             this.rbStaffsMale.AutoSize = true;
             this.rbStaffsMale.BackColor = System.Drawing.Color.MistyRose;
-            this.rbStaffsMale.Enabled = false;
             this.rbStaffsMale.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold);
             this.rbStaffsMale.ForeColor = System.Drawing.Color.MediumVioletRed;
             this.rbStaffsMale.Location = new System.Drawing.Point(79, 168);
@@ -279,7 +278,6 @@ namespace Jazzydior
             // 
             this.rbStaffsFemale.AutoSize = true;
             this.rbStaffsFemale.BackColor = System.Drawing.Color.MistyRose;
-            this.rbStaffsFemale.Enabled = false;
             this.rbStaffsFemale.Font = new System.Drawing.Font("Lucida Handwriting", 9F, System.Drawing.FontStyle.Bold);
             this.rbStaffsFemale.ForeColor = System.Drawing.Color.MediumVioletRed;
             this.rbStaffsFemale.Location = new System.Drawing.Point(170, 168);
@@ -860,6 +858,6 @@ namespace Jazzydior
         private System.Windows.Forms.TextBox txtBoxStaffsID;
         private System.Windows.Forms.Label lblStaffsSex;
         private System.Windows.Forms.RadioButton rbStaffUnemployed;
-        private System.Windows.Forms.RadioButton rbStatusEmployed;
+        private System.Windows.Forms.RadioButton rbStaffEmployed;
     }
 }

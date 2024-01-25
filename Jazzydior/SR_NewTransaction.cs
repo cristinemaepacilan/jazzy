@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -622,7 +623,7 @@ namespace Jazzydior
         {
             PrinterSettings printerSettings = new PrinterSettings();
             PaperSize paperSize = new PaperSize("Custom", 100, 200);
-
+            //printerSettings.PrinterName = 
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.Document.DefaultPageSettings.PaperSize = paperSize;
 
@@ -648,9 +649,9 @@ namespace Jazzydior
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
-            //Image logo = Image.FromFile(@"C:\Users\admin\Downloads\logo.png");
+            Image logo = Image.FromFile(@"../../Resources/logo.png");
 
-            //e.Graphics?.DrawImage(ResizeImage(logo,100,100), new Point(50, 50));
+
             //e.Graphics.DrawString("**********************", new Font(FontFamily.GenericMonospace,12,FontStyle.Bold), Brushes.Black, new Point(1, 20));
             //e.Graphics.DrawString(
             //    "JAZZYDIOR BEAUTY LOUNGE", 
@@ -673,7 +674,9 @@ namespace Jazzydior
             int startY = 55;
             int Offset = 40;
             String underLine = "---------------------------------";
-            graphics.DrawString("Welcome to JazzyDior Beauty Lounge", new Font("Courier New", 14, FontStyle.Bold), new SolidBrush(Color.Black), startX, startY + Offset);
+             graphics.DrawImage(ResizeImage(logo, 60, 60),startX+180,startY + Offset);
+            Offset = Offset + 70;
+            graphics.DrawString("Welcome to JazzyDior Beauty Lounge", new Font("Courier New", 14, FontStyle.Bold), new SolidBrush(Color.Black), startX+10, startY + Offset);
             Offset = Offset + 20;
             graphics.DrawString("Pres ML Quezon, Suba, Bantayan, Cebu", new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
@@ -687,6 +690,35 @@ namespace Jazzydior
             Offset = Offset + 20;
             graphics.DrawString("Customer : " + txtBoxCustName.Text, new Font("Courier New", 12 , FontStyle.Italic), new SolidBrush(Color.Black), startX, startY + Offset);
             Offset = Offset + 20;
+            graphics.DrawString(underLine, new Font("Courier New", 14), new SolidBrush(Color.Black), startX, startY + Offset);
+            Offset = Offset + 20;
+
+            if(dtgServiceTransact.Rows.Count > 0)
+            {
+                foreach(DataGridViewRow row in dtgServiceTransact.Rows)
+                {
+
+                    graphics.DrawString(row.Cells[1].Value.ToString()+"   "+row.Cells[5].Value.ToString(), new Font("Courier New", 12, FontStyle.Italic), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset = Offset + 20;
+                }
+               
+
+
+            }
+
+            if (dtgPackageTransact.Rows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dtgPackageTransact.Rows)
+                {
+
+                    graphics.DrawString(row.Cells[1].Value.ToString()+"   "+row.Cells[8].Value.ToString(), new Font("Courier New", 12, FontStyle.Italic), new SolidBrush(Color.Black), startX, startY + Offset);
+                    Offset = Offset + 20;
+                }
+
+
+
+            }
+
 
 
 

@@ -70,6 +70,7 @@ namespace Jazzydior
             this.dtgSalesReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgSalesReport.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dtgSalesReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtgSalesReport.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dtgSalesReport.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumVioletRed;
@@ -104,9 +105,10 @@ namespace Jazzydior
             this.dtgSalesReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgSalesReport.RowHeadersWidth = 30;
             this.dtgSalesReport.RowTemplate.Height = 24;
-            this.dtgSalesReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgSalesReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtgSalesReport.Size = new System.Drawing.Size(1121, 497);
             this.dtgSalesReport.TabIndex = 26;
+            this.dtgSalesReport.DataSourceChanged += new System.EventHandler(this.dtgSalesReport_DataSourceChanged);
             this.dtgSalesReport.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgSalesReport_CellContentClick);
             // 
             // lblSalesTotal
@@ -202,6 +204,7 @@ namespace Jazzydior
             this.dateTimePickerArchiveServiceTo.Name = "dateTimePickerArchiveServiceTo";
             this.dateTimePickerArchiveServiceTo.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerArchiveServiceTo.TabIndex = 60;
+            this.dateTimePickerArchiveServiceTo.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveServiceTo_ValueChanged);
             // 
             // lblArchiveServiceTo
             // 
@@ -224,6 +227,7 @@ namespace Jazzydior
             this.dateTimePickerArchiveServiceFrom.Name = "dateTimePickerArchiveServiceFrom";
             this.dateTimePickerArchiveServiceFrom.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerArchiveServiceFrom.TabIndex = 59;
+            this.dateTimePickerArchiveServiceFrom.ValueChanged += new System.EventHandler(this.dateTimePickerArchiveServiceFrom_ValueChanged);
             // 
             // lblArchiveServiceFrom
             // 
@@ -282,6 +286,7 @@ namespace Jazzydior
             this.txtBoxArchiveServiceSearch.Name = "txtBoxArchiveServiceSearch";
             this.txtBoxArchiveServiceSearch.Size = new System.Drawing.Size(293, 30);
             this.txtBoxArchiveServiceSearch.TabIndex = 61;
+            this.txtBoxArchiveServiceSearch.TextChanged += new System.EventHandler(this.txtBoxArchiveServiceSearch_TextChanged);
             // 
             // lblArchiveServiceSearch
             // 

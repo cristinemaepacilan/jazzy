@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblMReportsTopTitle = new System.Windows.Forms.Label();
             this.ManagerReportsTopPanel = new System.Windows.Forms.Panel();
             this.btnTransactionReport = new System.Windows.Forms.Button();
@@ -44,10 +40,6 @@
             this.lblTransactionSearch = new System.Windows.Forms.Label();
             this.btnTransactionLoad = new System.Windows.Forms.Button();
             this.dataGridViewTransactionReport = new System.Windows.Forms.DataGridView();
-            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cust_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ServedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePickerTransactionTo = new System.Windows.Forms.DateTimePicker();
             this.lblTransactionTo = new System.Windows.Forms.Label();
             this.dateTimePickerTransactionFrom = new System.Windows.Forms.DateTimePicker();
@@ -143,6 +135,7 @@
             this.txtBoxTransactionSearch.Name = "txtBoxTransactionSearch";
             this.txtBoxTransactionSearch.Size = new System.Drawing.Size(293, 30);
             this.txtBoxTransactionSearch.TabIndex = 18;
+            this.txtBoxTransactionSearch.TextChanged += new System.EventHandler(this.txtBoxTransactionSearch_TextChanged);
             // 
             // lblTransactionSearch
             // 
@@ -179,94 +172,42 @@
             this.dataGridViewTransactionReport.BackgroundColor = System.Drawing.Color.MistyRose;
             this.dataGridViewTransactionReport.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewTransactionReport.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTransactionReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTransactionReport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTransactionReport.ColumnHeadersHeight = 50;
             this.dataGridViewTransactionReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewTransactionReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TransactionID,
-            this.Cust_Name,
-            this.ServedBy,
-            this.Date});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTransactionReport.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTransactionReport.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTransactionReport.EnableHeadersVisualStyles = false;
             this.dataGridViewTransactionReport.Location = new System.Drawing.Point(-1, 95);
             this.dataGridViewTransactionReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridViewTransactionReport.Name = "dataGridViewTransactionReport";
             this.dataGridViewTransactionReport.ReadOnly = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Pink;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTransactionReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Pink;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Lucida Handwriting", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.MediumVioletRed;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTransactionReport.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTransactionReport.RowHeadersWidth = 30;
             this.dataGridViewTransactionReport.RowTemplate.Height = 24;
             this.dataGridViewTransactionReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewTransactionReport.Size = new System.Drawing.Size(1116, 545);
             this.dataGridViewTransactionReport.TabIndex = 26;
-            // 
-            // TransactionID
-            // 
-            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransactionID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.TransactionID.FillWeight = 30F;
-            this.TransactionID.HeaderText = "Transaction ID No";
-            this.TransactionID.MinimumWidth = 6;
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.ReadOnly = true;
-            // 
-            // Cust_Name
-            // 
-            this.Cust_Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold);
-            this.Cust_Name.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Cust_Name.HeaderText = "Customer\'s Name";
-            this.Cust_Name.MinimumWidth = 6;
-            this.Cust_Name.Name = "Cust_Name";
-            this.Cust_Name.ReadOnly = true;
-            // 
-            // ServedBy
-            // 
-            this.ServedBy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold);
-            this.ServedBy.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ServedBy.FillWeight = 50F;
-            this.ServedBy.HeaderText = "Served By";
-            this.ServedBy.MinimumWidth = 6;
-            this.ServedBy.Name = "ServedBy";
-            this.ServedBy.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Lucida Handwriting", 7.8F, System.Drawing.FontStyle.Bold);
-            this.Date.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Date.FillWeight = 50F;
-            this.Date.HeaderText = "Date & Time";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
             // 
             // dateTimePickerTransactionTo
             // 
@@ -277,6 +218,7 @@
             this.dateTimePickerTransactionTo.Name = "dateTimePickerTransactionTo";
             this.dateTimePickerTransactionTo.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerTransactionTo.TabIndex = 25;
+            this.dateTimePickerTransactionTo.ValueChanged += new System.EventHandler(this.dateTimePickerTransactionTo_ValueChanged);
             // 
             // lblTransactionTo
             // 
@@ -299,6 +241,7 @@
             this.dateTimePickerTransactionFrom.Name = "dateTimePickerTransactionFrom";
             this.dateTimePickerTransactionFrom.Size = new System.Drawing.Size(164, 29);
             this.dateTimePickerTransactionFrom.TabIndex = 23;
+            this.dateTimePickerTransactionFrom.ValueChanged += new System.EventHandler(this.dateTimePickerTransactionFrom_ValueChanged);
             // 
             // lblTransactionFrom
             // 
@@ -407,10 +350,6 @@
         private System.Windows.Forms.Label lblTransactionSearch;
         private System.Windows.Forms.Button btnTransactionLoad;
         private System.Windows.Forms.DataGridView dataGridViewTransactionReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cust_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServedBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DateTimePicker dateTimePickerTransactionTo;
         private System.Windows.Forms.Label lblTransactionTo;
         private System.Windows.Forms.DateTimePicker dateTimePickerTransactionFrom;

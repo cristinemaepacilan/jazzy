@@ -47,6 +47,7 @@ namespace Jazzydior
             dtgTransactionRep.DataSource = dt;
 
             // Change the Column Name
+            dtgTransactionRep.Columns["transact_No"].HeaderText = "Transaction No";
             dtgTransactionRep.Columns["trans_CustName"].HeaderText = "Customer Name";
             dtgTransactionRep.Columns["Staff Name"].HeaderText = "Staff Name";
             //dtgTransactionRep.Columns[2].Visible = false;
@@ -74,7 +75,7 @@ namespace Jazzydior
                     try
                     {
                         dt.DefaultView.RowFilter = $"trans_CustName LIKE '%{keyword}%'"+
-
+                            $"OR [transact_No] LIKE '%{keyword}%' " +
                         $"OR [Staff Name] LIKE '%{keyword}%' " +
                         $"OR [Service Availed] LIKE '%{keyword}%' ";
                     }
@@ -96,9 +97,12 @@ namespace Jazzydior
         {
             DateTime DateFrom =dateTimePickerTransactionFrom.Value;
             DateTime DateTo =dateTimePickerTransactionTo.Value;
+            GetSalesRecord();
 
-
-    
+            var df = DateFrom.Date;
+            var t= DateTo.Date;
+            Console.WriteLine(df);
+            Console.WriteLine(t);
 
             if (DateFrom == DateTime.Today && DateTo == DateTime.Today)
             {
@@ -106,8 +110,7 @@ namespace Jazzydior
             }
 
 
-            if (dtgTransactionRep.DataSource != null)
-            {
+           
 
                 DataTable dt = (DataTable)dtgTransactionRep.DataSource;
                 var col = dt.Columns;
@@ -115,26 +118,21 @@ namespace Jazzydior
                 try
                 {
 
-                    FilterByDate(DateFrom, DateTo);
+                  
+                    dt.DefaultView.RowFilter = $"CONVERT(transact_Time, 'System.DateTime') >= #{DateFrom.Date}# AND CONVERT(transact_Time, 'System.DateTime') < #{DateTo.Date.AddDays(1)}#";
 
-                    ////dt.DefaultView.RowFilter = $"transact_Time BETWEEN '%{DateFrom.ToShortDateString()}%' AND '%{DateTo.ToShortDateString()}%' ";
-                    ////dt.DefaultView.RowFilter = $" CONVERT(DATE,transact_Time) >= '{DateFrom.ToShortDateString()}' AND CONVERT(DATE,transact_Time) <= '{DateFrom.ToShortDateString()}'";
-                    ////dt.DefaultView.RowFilter = $"transact_Time >= #" + DateFrom.ToString("yyyy-MM-dd") + "# AND transact_Time < #" + DateFrom.ToString("yyyy-MM-dd") + "#";
-                    //dt.DefaultView.RowFilter = $"transact_Time BETWEEN #{DateFrom.ToString("yyyy-MM-dd")}# AND #{DateTo.ToString("yyyy-MM-dd")}#";
-
-
-                    //$"OR [Staff Name] LIKE '%{keyword}%' " +
-                    //$"OR [Service Availed] LIKE '%{keyword}%' ";
+                  
                 }
                 catch (Exception error)
                 {
-                    Console.WriteLine(error.Message);
+                MessageBox.Show($"Error while filtering: "+ error.Message);
                     GetSalesRecord();
-                }
+                       
+                    }
 
 
                 dtgTransactionRep.DataSource = dt.DefaultView.ToTable();
-            }
+         
 
 
         }
